@@ -11,6 +11,10 @@ def rand_ratio():
 fake = Faker('pt_BR')
 # print(signature(fake.random_number))
 
+food_categories = [
+    'food,cook', 'kitchen,food', 'recipe,meal', 'dish,cooking', 'cuisine,food',
+    'baking,food', 'grilling,food', 'dessert,food', 'breakfast,food', 'lunch,food', 'dinner,food'
+]
 
 def make_recipe():
     return {
@@ -30,7 +34,7 @@ def make_recipe():
             'name': fake.word()
         },
         'cover': {
-            'url': 'https://loremflickr.com/%s/%s/food,cook' % rand_ratio(),
+            'url': 'https://loremflickr.com/%s/%s/{selected_category}' % rand_ratio(),
         }
     }
 
